@@ -47,7 +47,8 @@ public class RecipeListAdapter extends RecyclerView.Adapter<RecipeListAdapter.Re
     recipeViewHolder.recipeName.setText(recipe.getRecipeName());
     recipeViewHolder.totalTime.setText(Util.timeFormatter(recipe.getTotalTimeInSeconds()));
     recipeViewHolder.totalCalories.setText("--");
-    recipeViewHolder.ingredients.setText(recipe.getIngredients().size());
+    List<String> ingredients = recipe.getIngredients();
+    recipeViewHolder.ingredients.setText(ingredients != null ? Integer.toString(recipe.getIngredients().size()) : "--"); // TBD text if null
 
     Picasso.with(recipeViewHolder.itemView.getContext())
         .load(recipe.getSmallImageUrls().get(0))
