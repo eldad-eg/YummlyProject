@@ -3,17 +3,13 @@ package com.example.yummlyteam.app.model;
 
 import java.util.List;
 import com.google.gson.annotations.Expose;
-import com.google.gson.annotations.SerializedName;
 
 public class Attributes {
 
-    @SerializedName("course")
     @Expose
     private List<String> course = null;
-    @SerializedName("cuisine")
     @Expose
     private List<String> cuisine = null;
-    @SerializedName("holiday")
     @Expose
     private List<String> holiday = null;
 

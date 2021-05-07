@@ -2,20 +2,15 @@
 package com.example.yummlyteam.app.model;
 
 import com.google.gson.annotations.Expose;
-import com.google.gson.annotations.SerializedName;
 
 public class Attribution {
 
-    @SerializedName("html")
     @Expose
     private String html;
-    @SerializedName("url")
     @Expose
     private String url;
-    @SerializedName("text")
     @Expose
     private String text;
-    @SerializedName("logo")
     @Expose
     private String logo;
 

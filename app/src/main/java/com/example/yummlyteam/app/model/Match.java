@@ -3,35 +3,25 @@ package com.example.yummlyteam.app.model;
 
 import java.util.List;
 import com.google.gson.annotations.Expose;
-import com.google.gson.annotations.SerializedName;
 
 public class Match {
 
-    @SerializedName("attributes")
     @Expose
     private Attributes attributes;
-    @SerializedName("flavors")
     @Expose
     private Flavors flavors;
-    @SerializedName("rating")
     @Expose
     private Integer rating;
-    @SerializedName("id")
     @Expose
     private String id;
-    @SerializedName("smallImageUrls")
     @Expose
     private List<String> smallImageUrls = null;
-    @SerializedName("sourceDisplayName")
     @Expose
     private String sourceDisplayName;
-    @SerializedName("totalTimeInSeconds")
     @Expose
     private Integer totalTimeInSeconds;
-    @SerializedName("ingredients")
     @Expose
     private List<String> ingredients = null;
-    @SerializedName("recipeName")
     @Expose
     private String recipeName;
 

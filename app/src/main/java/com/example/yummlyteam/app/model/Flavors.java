@@ -2,26 +2,19 @@
 package com.example.yummlyteam.app.model;
 
 import com.google.gson.annotations.Expose;
-import com.google.gson.annotations.SerializedName;
 
 public class Flavors {
 
-    @SerializedName("salty")
     @Expose
     private Double salty;
-    @SerializedName("sour")
     @Expose
     private Double sour;
-    @SerializedName("sweet")
     @Expose
     private Double sweet;
-    @SerializedName("bitter")
     @Expose
     private Double bitter;
-    @SerializedName("meaty")
     @Expose
     private Double meaty;
-    @SerializedName("piquant")
     @Expose
     private Double piquant;
 

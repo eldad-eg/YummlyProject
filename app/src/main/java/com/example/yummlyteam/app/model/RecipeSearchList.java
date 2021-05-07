@@ -3,23 +3,17 @@ package com.example.yummlyteam.app.model;
 
 import java.util.List;
 import com.google.gson.annotations.Expose;
-import com.google.gson.annotations.SerializedName;
 
 public class RecipeSearchList {
 
-    @SerializedName("attribution")
     @Expose
     private Attribution attribution;
-    @SerializedName("totalMatchCount")
     @Expose
     private Integer totalMatchCount;
-    @SerializedName("facetCounts")
     @Expose
     private FacetCounts facetCounts;
-    @SerializedName("matches")
     @Expose
     private List<Match> matches = null;
-    @SerializedName("criteria")
     @Expose
     private Criteria criteria;
 

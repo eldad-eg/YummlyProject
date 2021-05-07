@@ -2,14 +2,11 @@
 package com.example.yummlyteam.app.model;
 
 import com.google.gson.annotations.Expose;
-import com.google.gson.annotations.SerializedName;
 
 public class FAT {
 
-    @SerializedName("min")
     @Expose
     private Integer min;
-    @SerializedName("max")
     @Expose
     private Integer max;
 
