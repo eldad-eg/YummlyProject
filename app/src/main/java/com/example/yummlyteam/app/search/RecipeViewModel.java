@@ -20,6 +20,7 @@ public class RecipeViewModel extends ViewModel {
     private MutableLiveData<RecipeSearchList> searchList = new MutableLiveData<>();
     private MutableLiveData<Integer> currentSearchPage = new MutableLiveData<>();
     private MutableLiveData<String> query = new MutableLiveData<>();
+    private MutableLiveData<Boolean> loadingStatus = new MutableLiveData<>();
 
     public LiveData<RecipeSearchList> getSearchList() {
         return searchList;
@@ -46,6 +47,8 @@ public class RecipeViewModel extends ViewModel {
         return query;
     }
 
+    public LiveData<Boolean> getLoadingStatus() { return loadingStatus; }
+
     public void fetchRecipeSearchList() {
         if (query.getValue() == null || query.getValue().isEmpty()) {
             return;
@@ -56,15 +59,18 @@ public class RecipeViewModel extends ViewModel {
         Call<RecipeSearchList> call = apiService.getRecipeList(APP_ID, ACCESS_KEY, query.getValue(), ITEM_PER_PAGE
                 , getCurrentSearchPage().getValue() == null ? 0 : getCurrentSearchPage().getValue());
 
+        loadingStatus.setValue(true);
         call.enqueue(new Callback<RecipeSearchList>() {
             @Override
             public void onResponse(Call<RecipeSearchList> call, Response<RecipeSearchList> response) {
+                loadingStatus.setValue(false);
                 int statusCode = response.code();
                 searchList.setValue(response.body());
             }
 
             @Override
             public void onFailure(Call<RecipeSearchList> call, Throwable t) {
+                loadingStatus.setValue(false);
                 preSearchPage();
             }
         });

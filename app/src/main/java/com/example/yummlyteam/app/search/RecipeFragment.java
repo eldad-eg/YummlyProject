@@ -11,6 +11,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 
 import com.example.yummlyteam.app.adapter.RecipeListAdapter;
 import com.example.yummlyteam.app.model.Match;
@@ -23,6 +24,7 @@ import java.util.ArrayList;
 public class RecipeFragment extends Fragment {
     private static final String TAG = RecipeFragment.class.getSimpleName();
     private RecyclerView recyclerView;
+    private ProgressBar progressBar;
     private RecipeViewModel mViewModel;
 
     public static RecipeFragment newInstance() {
@@ -66,5 +68,18 @@ public class RecipeFragment extends Fragment {
         };
         // attach the observer
         mViewModel.getSearchList().observe(this, searchListObserver);
+
+        // loading indicator
+        progressBar = getView().findViewById(R.id.progressBar);
+        progressBar.setVisibility(View.GONE);
+        final Observer<Boolean> loadingStatusObserver = new Observer<Boolean>() {
+            @Override
+            public void onChanged(@Nullable final Boolean loadingStatus) {
+                // Update the UI
+                progressBar.setVisibility(loadingStatus? View.VISIBLE : View.GONE );
+            }
+        };
+        mViewModel.getLoadingStatus().observe(this, loadingStatusObserver);
+
     }
 }
