@@ -40,7 +40,7 @@ public class RecipeFragment extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        mViewModel = ViewModelProviders.of(this).get(RecipeViewModel.class);
+        mViewModel = ViewModelProviders.of(getActivity()).get(RecipeViewModel.class);
 
         recyclerView = getView().findViewById(R.id.recyclerView);
         recyclerView.setAdapter(new RecipeListAdapter(new ArrayList<Match>()));
