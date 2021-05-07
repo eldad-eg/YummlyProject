@@ -79,6 +79,7 @@ public class RecipeViewModel extends ViewModel {
     public void nextSearchPage() {
         int newPageNumber = currentSearchPage.getValue() == null ? 0 : currentSearchPage.getValue() + ITEM_PER_PAGE;
         setCurrentSearchPage(newPageNumber);
+        fetchRecipeSearchList();
     }
 
     private void preSearchPage() {
