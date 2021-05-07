@@ -65,7 +65,6 @@ public class RecipeFragment extends Fragment {
                     ((RecipeListAdapter) recyclerView.getAdapter()).clearList();
                 } else
                     ((RecipeListAdapter) recyclerView.getAdapter()).addItems(searchList.getMatches());
-                recyclerView.getAdapter().notifyDataSetChanged();
             }
         };
         // attach the observer

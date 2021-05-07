@@ -50,16 +50,20 @@ public class RecipeListAdapter extends RecyclerView.Adapter<RecipeListAdapter.Re
     List<String> ingredients = recipe.getIngredients();
     recipeViewHolder.ingredients.setText(ingredients != null ? Integer.toString(recipe.getIngredients().size()) : "--"); // TBD text if null
 
-    Picasso.with(recipeViewHolder.itemView.getContext())
-        .load(recipe.getSmallImageUrls().get(0))
-        .networkPolicy(
-            Util.isNetworkConnectionAvailable(recipeViewHolder.itemView.getContext()) ?
-                NetworkPolicy.NO_CACHE : NetworkPolicy.OFFLINE)
-        .into(recipeViewHolder.recipeImageView);
-
-    if (recipe.getFlavors() != null && Util.doublesEqual(recipe.getFlavors().getBitter(), 1d)) {
-      recipeViewHolder.recipeBitternessIndicator.setVisibility(View.VISIBLE);
+    List<String> smallImageUrls = recipe.getSmallImageUrls();
+    if (smallImageUrls != null && ! smallImageUrls.isEmpty()) {
+      Picasso.with(recipeViewHolder.itemView.getContext())
+              .load(recipe.getSmallImageUrls().get(0))
+              .networkPolicy(
+                      Util.isNetworkConnectionAvailable(recipeViewHolder.itemView.getContext()) ?
+                              NetworkPolicy.NO_CACHE : NetworkPolicy.OFFLINE)
+              .into(recipeViewHolder.recipeImageView);
+    } else {
+      recipeViewHolder.recipeImageView.setImageBitmap(null); // TBD default image
     }
+
+    boolean isBitter = (recipe.getFlavors() != null && Util.doublesEqual(recipe.getFlavors().getBitter(), 1d));
+    recipeViewHolder.recipeBitternessIndicator.setVisibility(isBitter ? View.VISIBLE : View.GONE);
 
     ApiInterface apiService =
             ApiClient.getClient().create(ApiInterface.class);
@@ -85,8 +89,8 @@ public class RecipeListAdapter extends RecyclerView.Adapter<RecipeListAdapter.Re
 
   public boolean addItems(List<Match> newItems) {
     if (recipeList !=null) {
-      int preSize = recipeList.size();
       recipeList.addAll(newItems);
+      notifyDataSetChanged();
       return true;
     }
     return false;
