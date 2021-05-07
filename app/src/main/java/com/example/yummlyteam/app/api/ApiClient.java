@@ -14,13 +14,13 @@ public class ApiClient {
     }
 
 
-        public static Retrofit getClient() {
+    public static Retrofit getClient() {
 
+        if (retrofit == null) {
             OkHttpClient client = new OkHttpClient
                     .Builder()
                     .build();
 
-            if (retrofit==null) {
             retrofit = new Retrofit.Builder()
                     .baseUrl(BASE_URL)
                     .client(client)
