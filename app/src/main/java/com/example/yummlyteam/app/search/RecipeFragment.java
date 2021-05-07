@@ -43,6 +43,7 @@ public class RecipeFragment extends Fragment {
         mViewModel = ViewModelProviders.of(getActivity()).get(RecipeViewModel.class);
 
         recyclerView = getView().findViewById(R.id.recyclerView);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setAdapter(new RecipeListAdapter(new ArrayList<Match>()));
         recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
@@ -64,6 +65,7 @@ public class RecipeFragment extends Fragment {
                     ((RecipeListAdapter) recyclerView.getAdapter()).clearList();
                 } else
                     ((RecipeListAdapter) recyclerView.getAdapter()).addItems(searchList.getMatches());
+                recyclerView.getAdapter().notifyDataSetChanged();
             }
         };
         // attach the observer
