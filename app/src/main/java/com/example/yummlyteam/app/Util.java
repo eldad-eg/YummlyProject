@@ -19,6 +19,10 @@ public class Util {
     }
 
     public static String timeFormatter(Integer timeInSeconds) {
+        if (timeInSeconds == null) {
+            return "?"; // TBD text if null
+        }
+
         int min = timeInSeconds / 60;
         if (min >= 60) {
             int hour = min/60;
