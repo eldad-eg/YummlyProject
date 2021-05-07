@@ -2,15 +2,11 @@
 package com.example.yummlyteam.app.model;
 
 import java.util.List;
-import com.google.gson.annotations.Expose;
 
 public class Attributes {
 
-    @Expose
     private List<String> course = null;
-    @Expose
     private List<String> cuisine = null;
-    @Expose
     private List<String> holiday = null;
 
     public List<String> getCourse() {

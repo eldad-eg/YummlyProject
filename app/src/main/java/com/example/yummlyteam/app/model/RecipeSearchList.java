@@ -2,19 +2,13 @@
 package com.example.yummlyteam.app.model;
 
 import java.util.List;
-import com.google.gson.annotations.Expose;
 
 public class RecipeSearchList {
 
-    @Expose
     private Attribution attribution;
-    @Expose
     private Integer totalMatchCount;
-    @Expose
     private FacetCounts facetCounts;
-    @Expose
     private List<Match> matches = null;
-    @Expose
     private Criteria criteria;
 
     public Attribution getAttribution() {

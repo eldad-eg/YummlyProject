@@ -1,13 +1,9 @@
 
 package com.example.yummlyteam.app.model;
 
-import com.google.gson.annotations.Expose;
-
 public class FlavorPiquant {
 
-    @Expose
     private Double min;
-    @Expose
     private Integer max;
 
     public Double getMin() {

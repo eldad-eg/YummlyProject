@@ -1,21 +1,13 @@
 
 package com.example.yummlyteam.app.model;
 
-import com.google.gson.annotations.Expose;
-
 public class Flavors {
 
-    @Expose
     private Double salty;
-    @Expose
     private Double sour;
-    @Expose
     private Double sweet;
-    @Expose
     private Double bitter;
-    @Expose
     private Double meaty;
-    @Expose
     private Double piquant;
 
     public Double getSalty() {

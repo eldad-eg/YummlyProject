@@ -1,13 +1,9 @@
 
 package com.example.yummlyteam.app.model;
 
-import com.google.gson.annotations.Expose;
-
 public class FAT {
 
-    @Expose
     private Integer min;
-    @Expose
     private Integer max;
 
     public Integer getMin() {

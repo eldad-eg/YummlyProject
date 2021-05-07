@@ -1,17 +1,11 @@
 
 package com.example.yummlyteam.app.model;
 
-import com.google.gson.annotations.Expose;
-
 public class Attribution {
 
-    @Expose
     private String html;
-    @Expose
     private String url;
-    @Expose
     private String text;
-    @Expose
     private String logo;
 
     public String getHtml() {

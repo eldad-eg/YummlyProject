@@ -2,33 +2,20 @@
 package com.example.yummlyteam.app.model;
 
 import java.util.List;
-import com.google.gson.annotations.Expose;
 
 public class Criteria {
 
-    @Expose
     private Integer maxResults;
-    @Expose
     private List<String> excludedIngredients = null;
-    @Expose
     private List<Object> excludedAttributes = null;
-    @Expose
     private List<String> allowedIngredients = null;
-    @Expose
     private AttributeRanges attributeRanges;
-    @Expose
     private NutritionRestrictions nutritionRestrictions;
-    @Expose
     private List<String> allowedDiets = null;
-    @Expose
     private Integer resultsToSkip;
-    @Expose
     private Boolean requirePictures;
-    @Expose
     private List<Object> facetFields = null;
-    @Expose
     private List<String> terms = null;
-    @Expose
     private List<String> allowedAttributes = null;
 
     public Integer getMaxResults() {

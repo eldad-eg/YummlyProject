@@ -2,27 +2,17 @@
 package com.example.yummlyteam.app.model;
 
 import java.util.List;
-import com.google.gson.annotations.Expose;
 
 public class Match {
 
-    @Expose
     private Attributes attributes;
-    @Expose
     private Flavors flavors;
-    @Expose
     private Integer rating;
-    @Expose
     private String id;
-    @Expose
     private List<String> smallImageUrls = null;
-    @Expose
     private String sourceDisplayName;
-    @Expose
     private Integer totalTimeInSeconds;
-    @Expose
     private List<String> ingredients = null;
-    @Expose
     private String recipeName;
 
     public Attributes getAttributes() {
