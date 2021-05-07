@@ -6,6 +6,7 @@ import android.net.NetworkInfo;
 
 
 public class Util {
+    public static final double DOUBLE_EQUALITY_DEFAULT_EPSILON = 0.001d;
 
     public static boolean isNetworkConnectionAvailable(Context context) {
         boolean isNetworkConnectionAvailable = false;
@@ -25,6 +26,20 @@ public class Util {
         }
         return String.valueOf(min) + "m";
 
+    }
+
+    public static boolean doublesEqual(Double a, Double b) {
+        return doublesEqual(a, b, DOUBLE_EQUALITY_DEFAULT_EPSILON);
+    }
+
+    public static boolean doublesEqual(Double a, Double b, Double epsilon) {
+        if (a == null && b == null) {
+            return true;
+        } else if (a == null || b == null) {
+            return false;
+        } else {
+            return Math.abs(a - b) <= epsilon;
+        }
     }
 
 }

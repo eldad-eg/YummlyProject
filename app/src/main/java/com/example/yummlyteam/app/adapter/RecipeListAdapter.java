@@ -57,7 +57,7 @@ public class RecipeListAdapter extends RecyclerView.Adapter<RecipeListAdapter.Re
                 NetworkPolicy.NO_CACHE : NetworkPolicy.OFFLINE)
         .into(recipeViewHolder.recipeImageView);
 
-    if (recipe.getFlavors().getBitter().equals(1f)) {
+    if (recipe.getFlavors() != null && Util.doublesEqual(recipe.getFlavors().getBitter(), 1d)) {
       recipeViewHolder.recipeBitternessIndicator.setVisibility(View.VISIBLE);
     }
 
