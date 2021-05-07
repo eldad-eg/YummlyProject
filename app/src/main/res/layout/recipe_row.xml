@@ -113,6 +113,8 @@
             android:text="This item is bitter"
             android:layout_alignParentRight="true"
             android:layout_alignParentTop="true"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
             android:background="@color/colorAccent"
             android:id="@+id/bitter_label"
             android:layout_height="wrap_content"
